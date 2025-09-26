@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Abhinay Bakery Dashboard</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    h1 { background: orange; color: white; padding: 10px; text-align: center; }
+    .product, .inventory-item { border: 1px solid #ccc; padding: 8px; margin: 5px 0; }
+    input, button { padding: 5px; margin-top: 5px; }
+  </style>
+</head>
+<body>
+
+  <h1>Abhinay Bakery Dashboard</h1>
+
+  <h2>Products</h2>
+  <div class="product">Chocolate Cake - ₹500</div>
+  <div class="product">Vanilla Pastry - ₹80</div>
+  <div class="product">Bread - ₹40</div>
+  <div class="product">Veg Puff - ₹25</div>
+
+  <h2>Add Inventory</h2>
+  <input id="itemName" placeholder="Item Name">
+  <input id="itemQty" placeholder="Quantity" type="number">
+  <button onclick="addItem()">Add</button>
+
+  <div id="inventoryList"></div>
+
+  <script>
+    function addItem() {
+      var name = document.getElementById('itemName').value;
+      var qty = document.getElementById('itemQty').value;
+      if(name && qty) {
+        var div = document.createElement('div');
+        div.className = 'inventory-item';
+        div.textContent = name + ' - ' + qty + ' pcs';
+        document.getElementById('inventoryList').appendChild(div);
+        document.getElementById('itemName').value = '';
+        document.getElementById('itemQty').value = '';
+      } else {
+        alert('Please enter both item name and quantity');
+      }
+    }
+  </script>
+
+</body>
+</html>
